@@ -1,0 +1,16 @@
+import pandas as pd
+import numpy
+closeprice=pd.read_csv('C:/Users/74759/data/close.csv',header=None)
+openprice=pd.read_csv('C:/Users/74759/data/open.csv',header=None)
+highprice=pd.read_csv('C:/Users/74759/data/high.csv',header=None)
+lowprice=pd.read_csv('C:/Users/74759/data/low.csv',header=None)
+
+f=open("C:/Users/74759/data/baseline_simres.txt")  #存储成dataframe
+a=[]
+for line in f:
+    b=line.split()
+    a.append(b)
+a.pop(0)
+from pandas.core.frame import DataFrame
+baseline_simres=DataFrame(a)
+baseline_simres.columns=['date','long','short','longstk','shrtstk','daily_pnl','ir','ret','daily_tvr','tvr','cps','dd','liq']
